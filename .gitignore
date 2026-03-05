@@ -1,0 +1,42 @@
+# Dataset and media files
+fake/
+real/
+frames/
+faces/
+
+# Image files
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.bmp
+*.tiff
+*.webp
+
+# Video files
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.wmv
+*.flv
+
+# Model weights (large binary files)
+*.pth
+*.pt
+*.h5
+*.pkl
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environments
+venv/
+env/
+.env
+
+# OS
+.DS_Store
+Thumbs.db

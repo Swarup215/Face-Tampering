@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Deepfake Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+        }
+
+        .card {
+            background: #fff;
+            width: 420px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        input[type="file"] {
+            margin: 15px 0;
+        }
+
+        button {
+            background: #2c5364;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        button:hover {
+            background: #203a43;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .real {
+            background: #e6f9f0;
+            color: #0b7a4b;
+            font-weight: bold;
+        }
+
+        .fake {
+            background: #fdecea;
+            color: #b00020;
+            font-weight: bold;
+        }
+
+        img {
+            margin-top: 15px;
+            max-width: 100%;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .confidence {
+            font-size: 14px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h1>Deepfake Detection</h1>
+    <div class="subtitle">AI-based Face Manipulation Analysis</div>
+
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" required>
+        <br>
+        <button type="submit">Analyze Image</button>
+    </form>
+
+    {% if image_path %}
+        <img src="{{ image_path }}" alt="Uploaded Image">
+
+        <div class="result {{ 'fake' if label == 'FAKE' else 'real' }}">
+            Prediction: {{ label }}
+            <div class="confidence">
+                Confidence: {{ confidence }}
+            </div>
+        </div>
+    {% endif %}
+</div>
+
+</body>
+</html>
